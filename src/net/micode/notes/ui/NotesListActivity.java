@@ -165,8 +165,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
             try {
                  in = getResources().openRawResource(R.raw.introduction);
                 if (in != null) {
-                    InputStreamReader isr = new InputStreamReader(in);
-                    BufferedReader br = new BufferedReader(isr);
+                    BufferedReader br = new BufferedReader( new InputStreamReader(in) );
                     char [] buf = new char[1024];
                     int len = 0;
                     while ((len = br.read(buf)) > 0) {
@@ -366,7 +365,7 @@ public class NotesListActivity extends Activity implements OnClickListener, OnIt
                     /**
                      * HACKME:When click the transparent part of "New Note" button, dispatch
                      * the event to the list view behind this button. The transparent part of
-                     * "New Note" button could be expressed by formula y=-0.12x+94（Unit:pixel）
+                     * "New Note" button could be expressed by formula y=-0.12x+94锛圲nit:pixel锛�
                      * and the line top of the button. The coordinate based on left of the "New
                      * Note" button. The 94 represents maximum height of the transparent part.
                      * Notice that, if the background of the button changes, the formula should
